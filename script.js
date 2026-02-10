@@ -99,10 +99,21 @@ document.addEventListener('DOMContentLoaded', () => {
             // WhatsApp URL
             const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
 
+            // Save to LocalStorage for Profile Page
+            localStorage.setItem('p_name', name);
+            localStorage.setItem('p_phone', phone);
+            localStorage.setItem('p_service', service);
+            localStorage.setItem('p_exp', exp);
+            localStorage.setItem('p_area', area);
+
             // Open WhatsApp
             window.open(whatsappUrl, '_blank');
 
-            alert('Redirecting to WhatsApp to complete your registration...');
+            // Redirect to Profile Page
+            setTimeout(() => {
+                window.location.href = 'profile.html';
+            }, 1000);
+
             registrationForm.reset();
         });
     }
