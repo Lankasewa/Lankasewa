@@ -26,6 +26,18 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
+// Hynena SL Provider Booking
+function bookHynena() {
+    // Construct pre-filled message
+    const message = `*Booking Inquiry for Hynena SL*%0A--------------------------%0AService: Video/Photography%0ACoverage: Event, Videography, Photography, Photo Editing%0AArea: North West Province%0A%0AHi, I am interested in booking Hynena SL for my event. Please let me know the availability and package details.`;
+
+    // WhatsApp URL
+    const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
+
+    // Open in new tab
+    window.open(whatsappUrl, '_blank');
+}
+
 // Form Handling
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -43,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
         bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
             // Get Values
             const name = document.getElementById('b-name').value;
             const phone = document.getElementById('b-phone').value;
