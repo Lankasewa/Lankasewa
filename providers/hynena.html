@@ -155,13 +155,29 @@
             high-quality editing and capture around the Northwest province.
         </p>
 
+        <div class="detail-row" style="margin-top: 1rem;">
+            <span class="detail-label" style="display: block; margin-bottom: 0.5rem;">Ongoing Works</span>
+        </div>
+        <div style="background: rgba(0,0,0,0.05); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span style="font-weight: 600; color: #333;">Wedding Shoot - Colombo</span>
+                <span
+                    style="background: #fca311; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.8rem;">Editing</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="font-weight: 600; color: #333;">Pre-shoot - Kandy</span>
+                <span
+                    style="background: #25D366; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.8rem;">Delivered</span>
+            </div>
+        </div>
+
         <a href="#" onclick="bookHynena()" class="btn-hire">Hire Me Now</a>
     </div>
 
     <script>
         // Authentication Check
         const user = localStorage.getItem('loggedInUser');
-        if (!user || user !== 'hynena01') {
+        if (!user || user !== 'Hyenasl') {
             alert('Access Denied: Please Login as Hyena SL Creations.');
             window.location.href = '../login.html';
         }
