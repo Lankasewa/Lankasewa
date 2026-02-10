@@ -159,8 +159,15 @@
     </div>
 
     <script>
+        // Authentication Check
+        const user = localStorage.getItem('loggedInUser');
+        if (!user || user !== 'hynena01') {
+            alert('Access Denied: Please Login as Hyena SL Creations.');
+            window.location.href = '../login.html';
+        }
+
         function bookHynena() {
-            const message = `*Booking Inquiry for Hynena SL*%0A--------------------------%0AService: Video/Photography%0ACoverage: Event, Videography, Photography, Photo Editing%0AArea: North West Province%0A%0AHi, I am interested in booking Hynena SL for my event...`;
+            const message = `*Booking Inquiry for Hyena SL Creations*%0A--------------------------%0AService: Video/Photography%0ACoverage: Event, Videography, Photography, Photo Editing%0AArea: Around Northwest Province%0A%0AHi, I am interested in booking Hyena SL Creations for my event. Please let me know the availability and package details.`;
             const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
             window.open(whatsappUrl, '_blank');
         }

@@ -160,6 +160,13 @@
     </div>
 
     <script>
+        // Authentication Check
+        const user = localStorage.getItem('loggedInUser');
+        if (!user || user !== 'kavinda@') {
+            alert('Access Denied: Please Login as H.M. Kavinda Damsith.');
+            window.location.href = '../login.html';
+        }
+
         function bookKavinda() {
             const message = `*Booking Inquiry for H.M. Kavinda Damsith*%0A--------------------------%0AService: Electrician%0AExperience: 2 Years%0AArea: North West Province%0A%0AHi, I am interested in booking your electrical services...`;
             const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
