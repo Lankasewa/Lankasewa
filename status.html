@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Status | Lankasewa</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .status-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 2rem;
+            background: var(--secondary-color);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #25D366;
+            margin-bottom: 1.5rem;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .sinhala-msg {
+            font-family: 'Noto Sans Sinhala', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Status Tracker */
+        .status-tracker {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .status-tracker::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+        }
+
+        .status-step {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            width: 25%;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #aaa;
+            transition: all 0.4s;
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            color: #aaa;
+            font-weight: 500;
+        }
+
+        /* Active State */
+        .status-step.active .step-circle {
+            background: var(--highlight-color);
+            color: #fff;
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 15px rgba(252, 163, 17, 0.4);
+        }
+
+        .status-step.active .step-label {
+            color: var(--highlight-color);
+            font-weight: 700;
+        }
+
+        /* Completed State */
+        .status-step.completed .step-circle {
+            background: #25D366;
+            border-color: #25D366;
+            color: #fff;
+        }
+
+        .status-step.completed .step-label {
+            color: #25D366;
+        }
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 3rem;
+            background: transparent;
+            border: 1px solid var(--highlight-color);
+            color: var(--highlight-color);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .home-btn:hover {
+            background: var(--highlight-color);
+            color: #fff;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Lankasewa Logo">
+            </div>
+        </nav>
+
+        <div class="status-container">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+
+            <h2 style="margin-bottom: 1rem; color: var(--highlight-color);">Booking Received!</h2>
+
+            <p class="sinhala-msg">
+                ඔබගේ අවශ්යතාවය සදහා අප හැකි ඉක්මනින් නියෝජිතයෙකු සම්බන්ද කරන්නෙමු.
+            </p>
+
+            <div class="status-tracker">
+                <!-- Step 1: Pending (Active initially) -->
+                <div class="status-step active" id="step-pending">
+                    <div class="step-circle">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <span class="step-label">Pending</span>
+                </div>
+
+                <!-- Step 2: Confirmed -->
+                <div class="status-step" id="step-confirmed">
+                    <div class="step-circle">
+                        <i class="fas fa-thumbs-up"></i>
+                    </div>
+                    <span class="step-label">Confirmed</span>
+                </div>
+
+                <!-- Step 3: Processing -->
+                <div class="status-step" id="step-processing">
+                    <div class="step-circle">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <span class="step-label">Processing</span>
+                </div>
+
+                <!-- Step 4: Completed -->
+                <div class="status-step" id="step-completed">
+                    <div class="step-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span class="step-label">Completed</span>
+                </div>
+            </div>
+
+            <a href="index.html" class="home-btn">Return Home</a>
+        </div>
+
+        <!-- Float WA -->
+        <a href="https://wa.me/94787943454" class="floating-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+</body>
+
+</html>

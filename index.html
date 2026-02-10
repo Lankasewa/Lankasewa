@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lankasewa | Electrician, Plumber, AC, Photography</title>
+    <meta name="description"
+        content="Find trusted professionals for Electrician, Plumber, AC Repair, and Photography services in Sri Lanka. Register as a provider or book a service today.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Lankasewa Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#register">Join as Pro</a></li>
+                <li><a href="#book" class="btn-primary">Book Now</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Expert Services at Your Doorstep in Sri Lanka</h1>
+                <p>We connect you with trusted Electricians, Plumbers, AC Technicians, and Photographers instantly.</p>
+                <div class="hero-buttons">
+                    <a href="#book" class="btn-primary">Book a Service</a>
+                    <a href="https://wa.me/94787943454" target="_blank" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Placeholder for a nice illustration or image -->
+                <div class="floating-card card-1">
+                    <i class="fas fa-bolt"></i>
+                    <span>Electrician</span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-camera"></i>
+                    <span>Photography</span>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-faucet"></i>
+                    <span>Plumbing</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="section-header">
+                <h2>Our Premium Services</h2>
+                <p>Top-rated professionals ready to help you.</p>
+            </div>
+            <div class="service-grid">
+                <!-- Electrician -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Electrician</h3>
+                    <p>Wiring, installations, and repairs for home and office.</p>
+                </div>
+
+                <!-- Plumber -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-faucet"></i>
+                    </div>
+                    <h3>Plumber</h3>
+                    <p>Leak fixes, pipe installations, and bathroom fittings.</p>
+                </div>
+
+                <!-- AC Repair -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>AC Repair</h3>
+                    <p>Service, maintenance, and repair for all AC brands.</p>
+                </div>
+
+                <!-- Photography -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Video/Photography</h3>
+                    <p>Professional coverage for events, weddings, and shoots.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dual Action Section: Register & Book -->
+        <section id="action-forms" class="action-forms">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'book')">Book a Service</button>
+                <button class="tab-btn" onclick="openTab(event, 'register')">Register as Provider</button>
+            </div>
+
+            <div class="form-container">
+                <!-- Booking Form -->
+                <div id="book" class="tab-content active">
+                    <h2>Book Your Service</h2>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="b-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="b-phone" placeholder="07x xxxxxxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Service</label>
+                            <select id="b-service" required>
+                                <option value="">Select a Service...</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="plumber">Plumber</option>
+                                <option value="ac_repair">AC Repair</option>
+                                <option value="photography">Video/Photography</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" id="b-location" placeholder="Your City/Area" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date Needed</label>
+                            <input type="date" id="b-date" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Confirm Booking</button>
+                    </form>
+                </div>
+
+                <!-- Registration Form -->
+                <div id="register" class="tab-content">
+                    <h2>Join Our Pro Network</h2>
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="r-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="tel" id="r-phone" placeholder="07x xxxxxxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Type</label>
+                            <select id="r-service" required>
+                                <option value="">Select Your Skill...</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="plumber">Plumber</option>
+                                <option value="ac_repair">AC Repair</option>
+                                <option value="photography">Video/Photography</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Experience (Years)</label>
+                            <input type="number" id="r-exp" min="0" placeholder="e.g. 5" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Service Area</label>
+                            <input type="text" id="r-area" placeholder="Cities you cover" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Lankasewa Logo">
+                </div>
+                <p>Connecting Sri Lanka with quality professionals.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/94787943454"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Lankasewa. All rights reserved.
+            </div>
+        </footer>
+
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/94787943454" class="floating-whatsapp" target="_blank" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
