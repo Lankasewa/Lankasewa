@@ -68,12 +68,13 @@
         // HARDCODED CREDENTIALS (NO DATABASE)
         // Format: 'username': 'password' -> 'redirect_page'
         const credentials = {
-            'hynena01': 'Hynena@123', // Example for Hynena SL
-            // Add more users here: 'user2': 'pass2'
+            'hynena01': 'Hynena@123',
+            'kavinda@': '200605', // Updated formatting
         };
 
         const redirects = {
-            'hynena01': 'providers/hynena.html'
+            'hynena01': 'providers/hynena.html',
+            'kavinda@': 'providers/kavinda.html'
         };
 
         document.getElementById('loginForm').addEventListener('submit', (e) => {

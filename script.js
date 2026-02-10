@@ -29,7 +29,7 @@ function openTab(evt, tabName) {
 // Hynena SL Provider Booking
 function bookHynena() {
     // Construct pre-filled message
-    const message = `*Booking Inquiry for Hynena SL*%0A--------------------------%0AService: Video/Photography%0ACoverage: Event, Videography, Photography, Photo Editing%0AArea: North West Province%0A%0AHi, I am interested in booking Hynena SL for my event. Please let me know the availability and package details.`;
+    const message = `*Booking Inquiry for Hyena SL Creations*%0A--------------------------%0AService: Video/Photography%0ACoverage: Event, Videography, Photography, Photo Editing%0AArea: Around Northwest Province%0A%0AHi, I am interested in booking Hyena SL Creations for my event. Please let me know the availability and package details.`;
 
     // WhatsApp URL
     const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
@@ -147,10 +147,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 service: 'Electrician',
                 location: 'Kurunegala',
                 date: '2026-02-11',
-                status: 'Pending'
+                status: 'Completed'
             }
         ];
         localStorage.setItem('allBookings', JSON.stringify(initialData));
+    }
+
+    // Force Update Existing Data for ID 00001
+    const allBookings = JSON.parse(localStorage.getItem('allBookings')) || [];
+    const booking01 = allBookings.find(b => b.id === '00001');
+    if (booking01) {
+        booking01.status = 'Completed';
+        localStorage.setItem('allBookings', JSON.stringify(allBookings));
     }
 
     // Initial Render
