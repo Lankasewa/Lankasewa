@@ -29,6 +29,9 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#register">Join as Pro</a></li>
+                <li><a href="login.html"
+                        style="color: var(--highlight-color); border: 1px solid var(--highlight-color); border-radius: 20px; padding: 5px 15px;">Login</a>
+                </li>
                 <li><a href="#book" class="btn-primary">Book Now</a></li>
             </ul>
             <div class="mobile-menu-btn">
@@ -120,8 +123,8 @@
             </div>
 
             <div class="service-grid">
-                <!-- Hynena SL Provider -->
-                <div class="service-card"
+                <!-- Provider 01: Hynena SL -->
+                <div id="provider-01" class="service-card"
                     style="border: 1px solid var(--highlight-color); background: rgba(252, 163, 17, 0.05);">
                     <div class="icon-box">
                         <i class="fas fa-camera"></i>
@@ -129,10 +132,11 @@
                     <h3 style="color: var(--highlight-color);">Hynena SL</h3>
                     <p style="margin-bottom: 0.5rem; font-weight: bold;">Video & Photography Specialist</p>
 
-                    <ul style="text-align: left; list-style: none; margin: 1rem 0; color: #ccc; font-size: 0.9rem;">
+                    <ul style="text-align: left; list-style: none; margin: 1rem 0; color: #555; font-size: 0.9rem;">
                         <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
                                 style="color: var(--highlight-color); margin-right: 5px;"></i>
-                            <strong>Services:</strong> Event coverage, Videography, Photography, Photo Editing</li>
+                            <strong>Services:</strong> Event coverage, Videography, Photography, Photo Editing
+                        </li>
                         <li style="margin-bottom: 0.5rem;"><i class="fas fa-star"
                                 style="color: var(--highlight-color); margin-right: 5px;"></i> <strong>Skills:</strong>
                             High Skills in Videography & Photography</li>
@@ -141,7 +145,13 @@
                             North West Province</li>
                     </ul>
 
-                    <button class="btn-primary" onclick="bookHynena()">Book Now</button>
+                    <div style="display: flex; gap: 10px; margin-top: 1rem;">
+                        <button class="btn-primary" onclick="bookHynena()" style="flex: 1;">Book Now</button>
+                        <a href="providers/hynena.html" class="btn-primary"
+                            style="background: transparent; border: 1px solid var(--highlight-color); color: var(--highlight-color); text-align: center; flex: 1; padding: 0.8rem 0;">
+                            View Profile
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -180,6 +190,8 @@
                             <label>Location</label>
                             <input type="text" id="b-location" placeholder="Your City/Area" required>
                         </div>
+                        <!-- Hidden Username Field (Auto-generated) -->
+                        <input type="hidden" id="b-username">
                         <div class="form-group">
                             <label>Date Needed</label>
                             <input type="date" id="b-date" required>
@@ -221,6 +233,41 @@
                         <button type="submit" class="btn-submit">Submit Application</button>
                     </form>
                 </div>
+            </div>
+        </section>
+
+        <!-- Our Bookings Section -->
+        <section id="bookings-list" class="services" style="background: #fff; padding-top: 2rem;">
+            <div class="section-header">
+                <h2>Our Bookings</h2>
+                <p>Real-time status of service requests.</p>
+            </div>
+
+            <div class="form-container" style="max-width: 900px; margin: 0 auto; overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                    <thead>
+                        <tr style="background: var(--highlight-color); color: #fff;">
+                            <th style="padding: 1rem; text-align: left;">Booking ID</th>
+                            <th style="padding: 1rem; text-align: left;">Service</th>
+                            <th style="padding: 1rem; text-align: left;">Location</th>
+                            <th style="padding: 1rem; text-align: left;">Date</th>
+                            <th style="padding: 1rem; text-align: center;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookings-table-body">
+                        <!-- Example Row -->
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 1rem; color: #555;">#USER123</td>
+                            <td style="padding: 1rem; color: #555;">Electrician</td>
+                            <td style="padding: 1rem; color: #555;">Colombo</td>
+                            <td style="padding: 1rem; color: #555;">2024-03-20</td>
+                            <td style="padding: 1rem; text-align: center;">
+                                <span
+                                    style="background: #fca311; color: #fff; padding: 5px 10px; border-radius: 15px; font-size: 0.85rem;">Pending</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 

@@ -57,6 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
         bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            // Auto-generate Username (e.g., USER + Random 4 digits)
+            const randomID = Math.floor(1000 + Math.random() * 9000);
+            const username = `User${randomID}`;
+
+            // Initialize Dummy Data (For Demo Only)
+            if (!localStorage.getItem('allBookings')) {
+                const initialData = [
+                    {
+                        id: '00001',
+                        service: 'Electrician',
+                        location: 'Kurunegala',
+                        date: '2026-02-11',
+                        status: 'Pending'
+                    }
+                ];
+                localStorage.setItem('allBookings', JSON.stringify(initialData));
+            }
+
             // Get Values
             const name = document.getElementById('b-name').value;
             const phone = document.getElementById('b-phone').value;
@@ -64,21 +82,79 @@ document.addEventListener('DOMContentLoaded', () => {
             const location = document.getElementById('b-location').value;
             const date = document.getElementById('b-date').value;
 
-            // Construct Message
-            const message = `*New Service Booking*%0A------------------%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ALocation: ${location}%0ARequired Date: ${date}`;
+            // Save Booking to LocalStorage (Simulating Database)
+            const bookingData = {
+                id: username,
+                service: service,
+                location: location,
+                date: date,
+                status: 'Pending'
+            };
 
-            // WhatsApp URL (Use web.whatsapp.com for desktop or wa.me for mobile/general)
+            // Get existing bookings or init empty array
+            const currentBookings = JSON.parse(localStorage.getItem('allBookings')) || [];
+            currentBookings.push(bookingData);
+            localStorage.setItem('allBookings', JSON.stringify(currentBookings));
+
+            // Construct Message with Username for Admin
+            const message = `*New Service Booking*%0A------------------%0A*Booking ID: ${username}*%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ALocation: ${location}%0ARequired Date: ${date}%0A%0A*Please use Booking ID to update status.*`;
+
+            // WhatsApp URL
             const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
 
-            // Open WhatsApp in new tab
+            // Open WhatsApp
             window.open(whatsappUrl, '_blank');
 
-            // Redirect to status page (give valid time for pop-up to trigger)
+            // Refresh Table & Redirect
+            renderBookings();
             setTimeout(() => {
                 window.location.href = 'status.html';
             }, 1000);
         });
     }
+
+    // Function to Render Bookings Table
+    function renderBookings() {
+        const tableBody = document.getElementById('bookings-table-body');
+        if (!tableBody) return;
+
+        const bookings = JSON.parse(localStorage.getItem('allBookings')) || [];
+        tableBody.innerHTML = ''; // Clear current rows
+
+        bookings.forEach(booking => {
+            const statusColor = booking.status === 'Completed' ? '#25D366' : '#fca311';
+
+            const row = `
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 1rem; color: #555;">#${booking.id}</td>
+                    <td style="padding: 1rem; color: #555;">${booking.service}</td>
+                    <td style="padding: 1rem; color: #555;">${booking.location}</td>
+                    <td style="padding: 1rem; color: #555;">${booking.date}</td>
+                    <td style="padding: 1rem; text-align: center;">
+                        <span style="background: ${statusColor}; color: #fff; padding: 5px 10px; border-radius: 15px; font-size: 0.85rem;">${booking.status}</span>
+                    </td>
+                </tr>
+            `;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    // Initial Fake Data for Demo
+    if (!localStorage.getItem('allBookings')) {
+        const initialData = [
+            {
+                id: '00001',
+                service: 'Electrician',
+                location: 'Kurunegala',
+                date: '2026-02-11',
+                status: 'Pending'
+            }
+        ];
+        localStorage.setItem('allBookings', JSON.stringify(initialData));
+    }
+
+    // Initial Render
+    renderBookings();
 
     // Registration Form Submission
     const registrationForm = document.getElementById('registrationForm');
@@ -109,9 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Open WhatsApp
             window.open(whatsappUrl, '_blank');
 
-            // Redirect to Profile Page
+            // Redirect to Login Page
             setTimeout(() => {
-                window.location.href = 'profile.html';
+                alert('Your application is submitted! Once approved, you will receive your login details via WhatsApp.');
+                window.location.href = 'login.html';
             }, 1000);
 
             registrationForm.reset();

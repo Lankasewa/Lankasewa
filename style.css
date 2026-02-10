@@ -1,14 +1,14 @@
 /* Global Styles */
 :root {
-    --primary-color: #0d1b2a;
-    --secondary-color: #1b263b;
-    --accent-color: #e0e1dd;
+    --primary-color: #ffffff;
+    --secondary-color: #f8f9fa;
+    --accent-color: #333333;
     --highlight-color: #fca311;
     /* Vibrant Orange/Gold */
-    --text-color: #e0e1dd;
-    --background-color: #0d1b2a;
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --glass-bg: rgba(255, 255, 255, 0.1);
+    --text-color: #333333;
+    --background-color: #ffffff;
+    --card-bg: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.9);
     --border-radius: 12px;
     --font-family: 'Outfit', sans-serif;
 }
@@ -39,12 +39,12 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background: rgba(13, 27, 42, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .logo {
@@ -121,7 +121,7 @@ a {
     justify-content: space-between;
     padding: 4rem 5%;
     min-height: 80vh;
-    background: radial-gradient(circle at top right, #1b263b, #0d1b2a);
+    background: radial-gradient(circle at top right, #f8f9fa, #ffffff);
     position: relative;
     overflow: hidden;
 }
@@ -146,7 +146,7 @@ a {
     font-size: 3.5rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
-    background: linear-gradient(to right, #fff, #a0a0a0);
+    background: linear-gradient(to right, #333, #666);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -174,15 +174,15 @@ a {
 /* Floating Cards Animation */
 .floating-card {
     position: absolute;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     padding: 1.5rem;
     border-radius: 15px;
     display: flex;
     align-items: center;
     gap: 1rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     animation: float 6s ease-in-out infinite;
 }
 
@@ -247,12 +247,14 @@ a {
     border-radius: var(--border-radius);
     text-align: center;
     transition: transform 0.3s, background 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .icon-box {
@@ -267,7 +269,7 @@ a {
 }
 
 .service-card p {
-    color: #ccc;
+    color: #666;
     font-size: 0.95rem;
 }
 
@@ -304,7 +306,7 @@ a {
 .tab-btn.active {
     background: var(--highlight-color);
     color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(252, 163, 17, 0.3);
 }
 
 .form-container {
@@ -313,8 +315,8 @@ a {
     background: var(--secondary-color);
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .tab-content {
@@ -345,7 +347,7 @@ a {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #aaa;
+    color: #555;
     font-size: 0.9rem;
 }
 
@@ -353,10 +355,10 @@ a {
 .form-group select {
     width: 100%;
     padding: 1rem;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    color: #fff;
+    color: #333;
     font-family: inherit;
     font-size: 1rem;
 }
@@ -386,10 +388,10 @@ a {
 
 /* Footer */
 footer {
-    background: #081018;
+    background: #f8f9fa;
     padding: 3rem 5%;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .footer-content {
@@ -417,7 +419,7 @@ footer {
 }
 
 .social-links a {
-    color: #ccc;
+    color: #666;
     font-size: 1.5rem;
 }
 
