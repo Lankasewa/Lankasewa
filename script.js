@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mobile Menu Toggle (Optional but good to have)
+    // Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
@@ -236,5 +236,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.style.padding = '1rem';
             }
         });
+    }
+
+    // Check Login Status for Header Update
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    const bookBtn = document.querySelector('a[href="#book"].btn-primary'); // Defines the button to replace
+    // In provider pages, the book button might not exist or be different.
+    // Provider pages have a simple nav: Home only.
+    // So this logic mainly applies to index.html.
+
+    // Map usernames to their profile pages
+    const userProfiles = {
+        'Hyenasl': 'providers/hynena.html',
+        'waditha@': 'providers/waditha.html',
+        'chathuranga@': 'providers/chathuranga.html',
+        'kumara@': 'providers/kumara.html'
+    };
+
+    if (loggedInUser && userProfiles[loggedInUser]) {
+        // Change "Book Now" to Profile Icon (Only on Index Page where this button exists)
+        if (bookBtn) {
+            bookBtn.innerHTML = '<i class="fas fa-user-circle"></i> My Profile';
+            bookBtn.href = userProfiles[loggedInUser];
+            bookBtn.style.background = 'transparent';
+            bookBtn.style.border = '2px solid var(--highlight-color)';
+            bookBtn.style.color = 'var(--highlight-color)';
+            bookBtn.onclick = null; // Remove any scroll effect if present
+        }
+
+        // Change "Login" to "Logout"
+        const loginBtn = document.querySelector('a[href="login.html"]');
+        if (loginBtn) {
+            loginBtn.textContent = 'Logout';
+            loginBtn.href = '#';
+            loginBtn.style.color = 'red';
+            loginBtn.style.borderColor = 'red';
+            loginBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('loggedInUser');
+                window.location.reload();
+            });
+        }
     }
 });
