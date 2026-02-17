@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hynena SL | Lankasewa</title>
+    <title>Chathuranga | Lankasewa</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
@@ -14,7 +14,7 @@
         .profile-header {
             text-align: center;
             padding: 3rem 0;
-            background: linear-gradient(rgba(13, 27, 42, 0.9), rgba(13, 27, 42, 0.9)), url('videography-bg.jpg');
+            background: linear-gradient(rgba(13, 27, 42, 0.9), rgba(13, 27, 42, 0.9));
             background-size: cover;
             border-bottom: 2px solid var(--highlight-color);
         }
@@ -104,17 +104,17 @@
 
     <div class="profile-header">
         <div class="profile-img">
-            <i class="fas fa-camera"></i>
+            <i class="fas fa-faucet"></i>
         </div>
-        <h1 style="color: #fff;">Hyena SL Creations</h1>
-        <p class="profile-role">Professional Videographer & Photographer</p>
+        <h1 style="color: #fff;">Chathuranga</h1>
+        <p class="profile-role">Professional Plumber</p>
 
         <div style="display: flex; gap: 1rem; justify-content: center;">
             <span style="background: #25D366; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">
                 <i class="fas fa-check-circle"></i> Verified
             </span>
             <span style="background: #333; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">
-                <i class="fas fa-star"></i> 5.0 Rating
+                <i class="fas fa-star"></i> 15 Years Exp
             </span>
         </div>
     </div>
@@ -124,22 +124,23 @@
 
         <div class="detail-row">
             <span class="detail-label">Full Name</span>
-            <span class="detail-value">HyenaSL</span>
+            <span class="detail-value">Chathuranga</span>
         </div>
 
         <div class="detail-row">
             <span class="detail-label">Service Category</span>
-            <span class="detail-value">Video / Photography</span>
+            <span class="detail-value">Plumber</span>
         </div>
 
         <div class="detail-row">
             <span class="detail-label">Experience</span>
-            <span class="detail-value">1 Year and Certified</span>
+            <span class="detail-value">15 Years</span>
         </div>
 
         <div class="detail-row">
             <span class="detail-label">Service Area</span>
-            <span class="detail-value">Northwest Province</span>
+            <span class="detail-value" style="max-width: 60%; text-align: right;">Dehivala, Mount Levinia,
+                Bambalapitiya, Kollupitiya, Wellavatta, Borella, Baththaramulla, Malabe, Nugegoda</span>
         </div>
 
         <div class="detail-row">
@@ -165,21 +166,12 @@
             </div>
         </div>
 
-        <a href="#" onclick="bookHynena()" class="btn-hire">Hire Me Now</a>
+        <a href="#" onclick="bookProvider()" class="btn-hire">Hire Me Now</a>
     </div>
 
     <script>
-        // Authentication Check Removed for Public Access
-        /*
-        const user = localStorage.getItem('loggedInUser');
-        if (!user || user !== 'Hyenasl') {
-            alert('Access Denied: Please Login as Hyena SL Creations.');
-            window.location.href = '../login.html';
-        }
-        */
-
-        function bookHynena() {
-            const message = `*Booking Inquiry for HyenaSL*%0A--------------------------%0AService: Video/Photography%0ACoverage: Northwest Province%0A%0AHi, I am interested in booking HyenaSL for my event. Please let me know availability.`;
+        function bookProvider() {
+            const message = `*Booking Inquiry for Chathuranga*%0A--------------------------%0AService: Plumber%0ACoverage: Dehivala, Mount Levinia, Bambalapitiya, Kollupitiya, Wellavatta, Borella, Baththaramulla, Malabe, Nugegoda%0A%0AHi, I am interested in booking Chathuranga for my plumbing needs. Please let me know availability.`;
             const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
             window.open(whatsappUrl, '_blank');
         }

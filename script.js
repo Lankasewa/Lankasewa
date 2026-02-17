@@ -27,14 +27,28 @@ function openTab(evt, tabName) {
 }
 
 // Hynena SL Provider Booking
+// Hynena SL Provider Booking
 function bookHynena() {
-    // Construct pre-filled message
-    const message = `*Booking Inquiry for Hyena SL Creations*%0A--------------------------%0AService: Video/Photography%0ACoverage: Event, Videography, Photography, Photo Editing%0AArea: Around Northwest Province%0A%0AHi, I am interested in booking Hyena SL Creations for my event. Please let me know the availability and package details.`;
-
-    // WhatsApp URL
+    const message = `*Booking Inquiry for HyenaSL*%0A--------------------------%0AService: Video/Photography%0ACoverage: Northwest Province%0A%0AHi, I am interested in booking HyenaSL for my event. Please let me know availability.`;
     const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+}
 
-    // Open in new tab
+function bookWaditha() {
+    const message = `*Booking Inquiry for Waditha Perera*%0A--------------------------%0AService: Plumber%0ACoverage: Kaluthara, Panadura, Colombo%0A%0AHi, I am interested in booking Waditha Perera for my plumbing needs. Please let me know availability.`;
+    const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+function bookChathuranga() {
+    const message = `*Booking Inquiry for Chathuranga*%0A--------------------------%0AService: Plumber%0ACoverage: Dehivala, Mount Levinia, Bambalapitiya, Kollupitiya, Wellavatta, Borella, Baththaramulla, Malabe, Nugegoda%0A%0AHi, I am interested in booking Chathuranga for my plumbing needs. Please let me know availability.`;
+    const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+function bookKumara() {
+    const message = `*Booking Inquiry for Kumara*%0A--------------------------%0AService: Electrician and Plumbing%0ACoverage: Ambalangoda, Galle, Panadura%0A%0AHi, I am interested in booking Kumara for my service needs. Please let me know availability.`;
+    const whatsappUrl = `https://wa.me/94787943454?text=${message}`;
     window.open(whatsappUrl, '_blank');
 }
 
