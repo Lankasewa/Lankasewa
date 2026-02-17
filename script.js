@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (loggedInUser && userProfiles[loggedInUser]) {
-        // Change "Book Now" to Profile Icon (Only on Index Page where this button exists)
+        // Change "Book Now" to Profile Icon
         if (bookBtn) {
             bookBtn.innerHTML = '<i class="fas fa-user-circle"></i> My Profile';
             bookBtn.href = userProfiles[loggedInUser];
@@ -264,18 +264,49 @@ document.addEventListener('DOMContentLoaded', () => {
             bookBtn.onclick = null; // Remove any scroll effect if present
         }
 
-        // Change "Login" to "Logout"
-        const loginBtn = document.querySelector('a[href="login.html"]');
-        if (loginBtn) {
-            loginBtn.textContent = 'Logout';
-            loginBtn.href = '#';
-            loginBtn.style.color = 'red';
-            loginBtn.style.borderColor = 'red';
-            loginBtn.addEventListener('click', (e) => {
+        // Add Provider Specific Nav Links (Announcements, Complaint)
+        const navList = document.querySelector('.nav-links');
+        if (navList) {
+            // Keep Home, remove others, add new ones
+            // We'll clear and rebuild for simplicity as requested
+            navList.innerHTML = '';
+
+            // 1. Home
+            const homeLi = document.createElement('li');
+            homeLi.innerHTML = '<a href="index.html">Home</a>';
+            navList.appendChild(homeLi);
+
+            // 2. Announcements
+            const announceLi = document.createElement('li');
+            announceLi.innerHTML = '<a href="announcements.html" title="Announcements"><i class="fas fa-bullhorn" style="font-size: 1.2rem; color: #555;"></i></a>';
+            navList.appendChild(announceLi);
+
+            // 3. Complaints (Direct WhatsApp)
+            const complaintLi = document.createElement('li');
+            complaintLi.innerHTML = '<a href="https://wa.me/94787943454?text=Complaint:%20I%20have%20an%20issue..." target="_blank" title="Complaint to Admin"><i class="fas fa-exclamation-triangle" style="font-size: 1.2rem; color: #ff4444;"></i></a>';
+            navList.appendChild(complaintLi);
+
+            // 4. Logout (Re-add)
+            const logoutLi = document.createElement('li');
+            const logoutLink = document.createElement('a');
+            logoutLink.textContent = 'Logout';
+            logoutLink.href = '#';
+            logoutLink.style.color = 'red';
+            logoutLink.style.border = '1px solid red';
+            logoutLink.style.borderRadius = '20px';
+            logoutLink.style.padding = '5px 15px';
+            logoutLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 localStorage.removeItem('loggedInUser');
                 window.location.reload();
             });
+            logoutLi.appendChild(logoutLink);
+            navList.appendChild(logoutLi);
+        }
+
+        // Hide original Login button if it exists separately (mobile etc)
+        if (loginBtn && !navList.contains(loginBtn)) {
+            loginBtn.style.display = 'none';
         }
     }
 });
